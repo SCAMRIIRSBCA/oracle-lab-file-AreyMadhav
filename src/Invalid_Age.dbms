@@ -1,0 +1,15 @@
+DECLARE
+   invalid_age EXCEPTION;
+   age NUMBER := 16;
+
+BEGIN
+   IF age < 18 THEN
+      RAISE invalid_age;
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('You are eligible for the course.');
+   END IF;
+EXCEPTION
+   WHEN invalid_age THEN
+      DBMS_OUTPUT.PUT_LINE('Error: Age is less than 18. You are not eligible for the course.');
+END;
+/
