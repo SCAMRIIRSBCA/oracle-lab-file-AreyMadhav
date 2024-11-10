@@ -1,0 +1,17 @@
+DECLARE
+   insufficient_balance EXCEPTION;
+
+   account_balance NUMBER := 500;
+   withdrawal_amount NUMBER := 600;
+BEGIN
+   IF withdrawal_amount > account_balance THEN
+      RAISE insufficient_balance;
+   ELSE
+      account_balance := account_balance - withdrawal_amount;
+      DBMS_OUTPUT.PUT_LINE('Withdrawal successful. Remaining balance: ' || account_balance);
+   END IF;
+EXCEPTION
+   WHEN insufficient_balance THEN
+      DBMS_OUTPUT.PUT_LINE('Error: Insufficient funds for the withdrawal.');
+END;
+/

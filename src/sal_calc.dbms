@@ -1,0 +1,13 @@
+DECLARE
+  v_base_salary NUMBER := 50000;  --Base
+  v_bonus NUMBER := 5000;          --Bonus
+  v_deductions NUMBER := 2000;     --Deductions
+  v_total_salary NUMBER;           --Total (Base + Bonus - Deductions)
+BEGIN
+  -- Calculate the total salary
+  v_total_salary := v_base_salary + v_bonus - v_deductions;
+  
+  -- Output the result
+  DBMS_OUTPUT.PUT_LINE('Total Salary: ' || v_total_salary);
+END;
+/
