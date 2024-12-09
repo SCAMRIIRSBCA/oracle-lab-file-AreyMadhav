@@ -1,0 +1,16 @@
+DECLARE
+  v_number NUMBER := 12345; --dummy number
+  v_sum NUMBER := 0;
+  v_digit NUMBER;
+BEGIN
+  -- Loop through each digit of the number
+  WHILE v_number > 0 LOOP
+    v_digit := v_number MOD 10;  --last digit
+    v_sum := v_sum + v_digit;  --Add the digit
+    v_number := v_number / 10;  --Remove the last digit
+  END LOOP;
+
+  -- Output the result
+  DBMS_OUTPUT.PUT_LINE('The sum of the digits is: ' || v_sum);
+END;
+/

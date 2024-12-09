@@ -1,0 +1,17 @@
+DECLARE
+  CURSOR emp_cursor IS
+    SELECT emp_name, salary 
+    FROM employee 
+    WHERE department = 'Sales';
+  v_name employee.emp_name%TYPE;
+  v_salary employee.salary%TYPE;
+BEGIN
+  OPEN emp_cursor;
+  LOOP
+    FETCH emp_cursor INTO v_name, v_salary;
+    EXIT WHEN emp_cursor%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE('Employee Name: ' || v_name || ', Salary: ' || v_salary);
+  END LOOP;
+  CLOSE emp_cursor;
+END;
+/
